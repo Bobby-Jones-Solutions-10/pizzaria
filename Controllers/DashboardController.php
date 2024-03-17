@@ -12,9 +12,6 @@ class DashboardController
 
   public function executar()
   {
-    if (isset($_POST['logar'])) {
-        
-    }
     $this->view->render(['titulo' => 'dashboard']);
   }
 }

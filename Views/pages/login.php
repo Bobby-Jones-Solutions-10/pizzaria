@@ -12,7 +12,7 @@
   <script src="https://cdn.tailwindcss.com"></script>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title><?php ?></title>
+  <title><?php echo $arr['titulo']; ?></title>
 </head>
 
 <body class="w-screen h-screen items-center justify-start flex flex-col bg-[#F9EFDB] bg-[url('assets/images/footerV2.png')] bg-no-repeat bg-bottom bg-[length:100%_35%]">

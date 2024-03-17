@@ -1,18 +1,85 @@
 <?php
-define('INCLUDE_PATH','http://localhost/www/');
+define('INCLUDE_PATH','http://localhost/www/projetoGivas/');
 class Aplication
 {
-    public function executar(){
-        $url = isset($_GET['url']) ? explode('/',$_GET['url'])[0] : 'Login';
+    public function executar()
+    {
+        $mysql = new MySql();
+        $mysql->SetUp("CREATE TABLE IF NOT EXISTS Usuarios(
+            id int primary key not null AUTO_INCREMENT,
+            id_status boolean not null, 
+            email varchar(200) not null,
+            senha varchar(255) not null
+            );
+            
+            CREATE TABLE IF NOT EXISTS funcionarios(
+                id int primary key not null AUTO_INCREMENT,
+                nome varchar(200) not null,
+                cargo varchar(200) not null,
+                endereco varchar(200) not null,
+                contato varchar(20) not null
+            );
+
+            CREATE TABLE IF NOT EXISTS clientes(
+                id int primary key not null AUTO_INCREMENT,
+                nome varchar(255) not null,
+                CPF char(12) not null UNIQUE,
+                contato varchar(20) not null,
+                endereco varchar(200) not null   
+            );
+            
+            CREATE TABLE IF NOT EXISTS sabores(
+                id int primary key not null AUTO_INCREMENT,
+                sabor varchar(100) not null UNIQUE,
+                preco decimal(6,2) not null
+            );
+            
+            CREATE TABLE IF NOT EXISTS extras(
+                id int primary key not null AUTO_INCREMENT,
+                extra varchar(100) not null UNIQUE,
+                preco decimal(6,2) not null
+            );
+            
+            CREATE TABLE IF NOT EXISTS tamanhos(
+                id int primary key not null AUTO_INCREMENT,
+                tamanho varchar(100) not null UNIQUE,
+                preco decimal(6,2) not null 
+            );
+            
+            CREATE TABLE IF NOT EXISTS pizzas(
+                id int primary key not null AUTO_INCREMENT,
+                idSabores int not null,
+                idExtras int not null,
+                idTamanhos int not null,
+                FOREIGN KEY (idSabores) REFERENCES sabores(id),
+                FOREIGN KEY (idExtras) REFERENCES extras(id),
+                FOREIGN KEY (idTamanhos) REFERENCES tamanhos(id)
+                
+            );
+            
+            CREATE TABLE IF NOT EXISTS pedidos(
+                id int primary key not null AUTO_INCREMENT,
+                idPizza int not null,
+                idCliente int not null,
+                preco decimal(6,2) not null,
+                tipo char(1) not null Check('B','E'),
+                pronta boolean not null, 
+                FOREIGN KEY (idPizza) REFERENCES pizzas(id),
+                FOREIGN KEY (idCliente) REFERENCES clientes(id)                
+            );
+            ");
+
+        
+
+        $url = isset ($_GET['url']) ? explode('/', $_GET['url'])[0] : 'Login';
         $url = ucfirst($url);
-        $url.="Controller";
-        if(file_exists('Controllers/'.$url.'.php')){
-            $className = 'Controllers\\'.$url;
+        $url .= "Controller";
+        if (file_exists('Controllers/' . $url . '.php')) {
+            $className = 'Controllers\\' . $url;
             $controller = new $className();
             $controller->executar();
-        }
-        else{
-            die("não existe controlador");
+        } else {
+            die ("não existe controlador");
         }
     }
 }

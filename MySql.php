@@ -1,6 +1,6 @@
 <?php
 define('HOST', 'localhost');
-define('DB', '');
+define('DB', 'pitzzaPHP');
 define('USER', 'root');
 define('PASS', '');
 
@@ -14,6 +14,7 @@ class MySql
 
     public function SetUp($query) {
         $sql = $this->pdo->prepare($query);
+        $sql->execute();
     }
 
     public function Insert($table,$key = [],$value = []) {
@@ -45,12 +46,37 @@ class MySql
     }
 
     public function Select($table,$all = '*',$key,$value){
-        if($key != null && $key != '' && $value != null && $value != ""){
-            $query = "SELECT $all FROM $table WHERE $key = ?";
+        try{
+            $query = "SELECT $all FROM $table";
+            
+            if($key != null && $key != '' && $value != null && $value != ""){
+                $query .= " WHERE $key = ?";
+            }
+
             $sql = $this->pdo->prepare($query);
-            $sql->execute([$value]);
+
+            if($key != null && $key != '' && $value != null && $value != ""){
+                $sql->execute([$value]);
+            }
+            else{
+                $sql->execute();
+            }
             return $sql->fetchAll();
         }
+            catch(PDOException){
+            echo '<script> alert("Login ou Senha incorretos"); </script>';
+        }
+    }
 
+    public function Update($table,$colun,$value,$id) {
+        if($colun != null && $colun != '' && $value != null && $value != ""){
+            try {
+                $query = "UPDATE usuarios SET $colun = ? WHERE id = ?;";
+                $sql = $this->pdo->prepare($query);
+                $sql->execute([$value,$id]);
+            } catch (PDOException) {
+                // BO pra depois :)
+            }
+        }
     }
 }
