@@ -6,13 +6,17 @@ class Funcionario
 {
     public static function Cadastrar($nome,$cargo,$endereco,$contato){
         $mysql = new \MySql();
-        if(strlen($nome) > 5  && strlen($endereco) > 5 && strlen($contato) > 5){
+        $verificaArray = [' ','/','.',','];
+        $nomeVerifica = str_replace($verificaArray,'',$nome);
+        $enderecoVerifica = str_replace($verificaArray,'',$endereco);
+        $contatoVerifica = str_replace($verificaArray,'',$endereco);
+
+        if($nomeVerifica != '' && $enderecoVerifica != '' && $contatoVerifica != ''){
             $mysql->Insert('funcionarios',['nome','cargo','endereco','contato'],[$nome,$cargo,$endereco,$contato]);
         }
         else{
             echo '<script> alert("preencha todos os campos"); </script>';
         }
-        $_POST['nome'] = '';
     }
 
     public static function pegarFuncionario($id){

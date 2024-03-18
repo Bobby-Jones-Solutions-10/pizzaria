@@ -15,6 +15,7 @@ class FuncionarioController
     {
       if(isset($_POST['cadastrar'])){
         \Models\Funcionario::Cadastrar($_POST['nome'],$_POST['cargo'],$_POST['endereco'],$_POST['numero']);
+        $_POST = [];
       }
       $this->view->render(['titulo' => 'Funcionarios']);
     }
