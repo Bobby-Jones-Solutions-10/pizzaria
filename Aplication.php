@@ -16,8 +16,14 @@ class Aplication
                 id int primary key not null AUTO_INCREMENT,
                 nome varchar(200) not null,
                 cargo varchar(200) not null,
-                endereco varchar(200) not null,
-                contato varchar(20) not null
+                contato varchar(20) not null,
+                CEP int(8) not null,  
+                logradouro varchar(50) not null,
+                bairro varchar(20) not null,
+                localidade varchar (30) not null,
+                uf char(2) not null,
+                ibge int(10) not null,
+                numeroCasa int(5) not null
             );
 
             CREATE TABLE IF NOT EXISTS clientes(
@@ -25,7 +31,13 @@ class Aplication
                 nome varchar(255) not null,
                 CPF char(12) not null UNIQUE,
                 contato varchar(20) not null,
-                endereco varchar(200) not null   
+                CEP int(8) not null,  
+                logradouro varchar(50) not null,
+                bairro varchar(20) not null,
+                localidade varchar (30) not null,
+                uf char(2) not null,
+                ibge int(10) not null,
+                numeroCasa int(5) not null
             );
             
             CREATE TABLE IF NOT EXISTS sabores(
@@ -54,7 +66,6 @@ class Aplication
                 FOREIGN KEY (idSabores) REFERENCES sabores(id),
                 FOREIGN KEY (idExtras) REFERENCES extras(id),
                 FOREIGN KEY (idTamanhos) REFERENCES tamanhos(id)
-                
             );
             
             CREATE TABLE IF NOT EXISTS pedidos(
@@ -62,7 +73,7 @@ class Aplication
                 idPizza int not null,
                 idCliente int not null,
                 preco decimal(6,2) not null,
-                tipo char(1) not null Check('B','E'),
+                tipo char(1) not null,
                 pronta boolean not null, 
                 FOREIGN KEY (idPizza) REFERENCES pizzas(id),
                 FOREIGN KEY (idCliente) REFERENCES clientes(id)                

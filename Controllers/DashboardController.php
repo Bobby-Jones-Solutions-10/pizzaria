@@ -7,7 +7,7 @@ class DashboardController
 
   public function __construct()
   {
-    $this->view = new \Views\MainView('dashboard');
+    $this->view = new \Views\MainView('dashboard','BaseHeader.php');
   }
 
   public function executar()

@@ -13,9 +13,13 @@ class MainView
     }
 
     public function render($arr = []){
-        include('pages/templates/'.$this->header);
+        if($this->header != null){
+            include('pages/templates/'.$this->header);
+        }
         include('pages/'.$this->fileName.'.php');
-        include('pages/templates/'.$this->footer);
+        if($this->footer != null){
+            include('pages/templates/'.$this->footer);
+        }
     }
 }
 

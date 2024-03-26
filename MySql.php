@@ -70,13 +70,11 @@ class MySql
 
     public function Update($table,$colun,$value,$id) {
         if($colun != null && $colun != '' && $value != null && $value != ""){
-            try {
-                $query = "UPDATE usuarios SET $colun = ? WHERE id = ?;";
+            
+                $query = "UPDATE $table SET $colun = ? WHERE id = ?;";
                 $sql = $this->pdo->prepare($query);
                 $sql->execute([$value,$id]);
-            } catch (PDOException) {
-                // BO pra depois :)
-            }
+            
         }
     }
 }

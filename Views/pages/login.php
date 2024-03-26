@@ -5,15 +5,7 @@
 ?>
 
 
-<!DOCTYPE html>
-<html lang="pt-br">
 
-<head>
-  <script src="https://cdn.tailwindcss.com"></script>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title><?php echo $arr['titulo']; ?></title>
-</head>
 
 <body class="w-screen h-screen items-center justify-start flex flex-col bg-[#F9EFDB] bg-[url('assets/images/footerV2.png')] bg-no-repeat bg-bottom bg-[length:100%_35%]">
   <img src="./assets/images/logoMealTime.png" alt="Isso e uma logo" class="w-56 h-56">

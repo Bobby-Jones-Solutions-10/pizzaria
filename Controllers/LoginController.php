@@ -6,7 +6,7 @@ class LoginController
 
   public function __construct()
   {
-    $this->view = new \Views\MainView('login');
+    $this->view = new \Views\MainView('login','BaseHeader.php',null);
   }
 
   public function executar()
