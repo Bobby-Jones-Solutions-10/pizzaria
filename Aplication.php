@@ -37,7 +37,8 @@ class Aplication
                 localidade varchar (30) not null,
                 uf char(2) not null,
                 ibge int(10) not null,
-                numeroCasa int(5) not null
+                numeroCasa int(5) not null,
+                complemento varchar(255) not null
             );
             
             CREATE TABLE IF NOT EXISTS sabores(

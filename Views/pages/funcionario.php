@@ -34,9 +34,9 @@
     </script>
 </head>
 
-<body>
-    <section class="flex h-screen w-screen">
-        <div class="w-[300px] h-full flex justify-start items-start flex-col space-y-2 bg-[#BFCCB5]">
+<body class="w-screen h-screen">
+    <section class="flex bg-[#F9EFDB] h-[74%]">
+        <div class="w-[300px] h-full flex justify-start items-start flex-col space-y-2 bg-[#BFCCB5]" style="overflow-y: scroll;overflow-x: hidden;">
             <div class="w-[250px] mt-2 flex justify-center items-center">
                 <a href="<?php echo INCLUDE_PATH ?>Funcionario"
                     class="border-b-1 h-[40px] w-[100px] p-4 justify-center items-center flex bg-[#209E2C] w-8/12 rounded-lg text-3xl font-bold pb-5">
@@ -60,7 +60,7 @@
             $info = \Models\Funcionario::pegarFuncionario($_GET["id"]);
         }
         ?>
-        <div class="w-full flex flex-col items-center mt-10">
+        <div class="w-full flex flex-col items-center mt-10 ">
             <div class="font-semibold mb-16 text-3xl">
                 Funcionários
             </div>

@@ -29,11 +29,12 @@
       <img src="./assets/images/relatorio.png" class="w-16 h-16">
       <p class="text-black font-semibold pt-2">RELATÓRIOS</p>
     </a>
-    <a href="#" class="bg-[#BFCCB5] w-[180px] flex justify-center items-center flex-col rounded-lg p-4">
+    <a href="<?php echo INCLUDE_PATH ?>Config" class="bg-[#BFCCB5] w-[180px] flex justify-center items-center flex-col rounded-lg p-4">
       <img src="./assets/images/engrenagem.png" class="w-16 h-16">
       <p class="text-black font-semibold pt-2">CONFIGURAÇÕES</p>
     </a>
   </div>
+  <br>
 </body>
 
 </html>
