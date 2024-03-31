@@ -13,15 +13,15 @@
       <img src="./assets/images/chefeCozinha.png" class="w-16 h-16">
       <p class="text-black font-semibold pt-2">FUNCIONÁRIOS</p>
     </a>
-    <a href="#" class="bg-[#EBD9B4] w-[180px] flex justify-center items-center flex-col rounded-lg p-4">
+    <a href="<?php echo INCLUDE_PATH ?>Cozinha" class="bg-[#EBD9B4] w-[180px] flex justify-center items-center flex-col rounded-lg p-4">
       <img src="./assets/images/chapeu.png" class="w-16 h-16">
       <p class="text-black font-semibold pt-2">COZINHA</p>
     </a>
-    <a href="#" class="bg-[#EBD9B4] w-[180px] flex justify-center items-center flex-col rounded-lg p-4">
+    <a href="<?php echo INCLUDE_PATH ?>Pedidos" class="bg-[#EBD9B4] w-[180px] flex justify-center items-center flex-col rounded-lg p-4">
       <img src="./assets/images/entrega.png" class="w-16 h-16">
       <p class="text-black font-semibold pt-2">PEDIDOS</p>
     </a>
-    <a href="<?php echo INCLUDE_PATH ?>Cliente" class="bg-[#BFCCB5] w-[180px] flex justify-center items-center flex-col rounded-lg p-4">
+    <a href="<?php echo INCLUDE_PATH ?>Clientes" class="bg-[#BFCCB5] w-[180px] flex justify-center items-center flex-col rounded-lg p-4">
       <img src="./assets/images/cliente.png" class="w-16 h-16">
       <p class="text-black font-semibold pt-2">CLIENTES</p>
     </a>

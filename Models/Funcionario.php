@@ -44,4 +44,9 @@ class Funcionario
             return [];
         }
     }
+
+    public static function deletarFuncionario($id) {
+        $mysql = new \MySql();
+        $mysql->Delete('funcionarios','id',$id);
+    }
 }

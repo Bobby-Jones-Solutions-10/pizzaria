@@ -17,6 +17,12 @@ class MySql
         $sql->execute();
     }
 
+    public function Sql($query) {
+        $sql = $this->pdo->prepare($query);
+        $sql->execute();
+        return $sql->fetchAll();
+    }
+
     public function Insert($table,$key = [],$value = []) {
 
         if(count($key) != 0 && count($value) != 0){
@@ -37,7 +43,7 @@ class MySql
                     $query .= ',';
                 }
             }
-    
+
             $query .= ");";
     
             $sql = $this->pdo->prepare($query);
@@ -76,5 +82,11 @@ class MySql
                 $sql->execute([$value,$id]);
             
         }
+    }
+
+    public function Delete($table,$key,$value){
+        $query = "DELETE FROM $table WHERE $key = ?;";
+        $sql = $this->pdo->prepare($query);
+        $sql->execute([$value]);
     }
 }

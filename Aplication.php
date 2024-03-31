@@ -87,9 +87,15 @@ class Aplication
         $url = ucfirst($url);
         $url .= "Controller";
         if (file_exists('Controllers/' . $url . '.php')) {
-            $className = 'Controllers\\' . $url;
-            $controller = new $className();
-            $controller->executar();
+            if($_SESSION["logado"] == true || $url == 'LoginController'){
+                $className = 'Controllers\\' . $url;
+                $controller = new $className();
+                $controller->executar();
+            }
+            else {
+                echo '404';
+                die();
+            }
         } else {
             die ("não existe controlador");
         }

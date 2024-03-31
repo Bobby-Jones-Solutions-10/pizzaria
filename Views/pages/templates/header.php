@@ -13,11 +13,11 @@
 <nav style="display: flex;align-items: center;gap: 10px;background-color: #BFCCB5; justify-content: space-around; height: 13%;">
 <img src="<?php echo INCLUDE_PATH ?>/assets/images/logoMealTime.png" alt="" style="max-width: 100px" >
 
-  <a class="bto" href="<?php echo INCLUDE_PATH ?>/Dashboard">DASHBOARD</a>
-  <a class="bto" href="<?php echo INCLUDE_PATH ?>/Funcionario">FUNCIONÁRIOS</a>
-  <a class="bto" href="<?php echo INCLUDE_PATH ?>/cozinha">COZINHA</a>
-  <a class="bto" href="<?php echo INCLUDE_PATH ?>/Pedido">PEDIDOS</a>
-  <a class="bto" href="<?php echo INCLUDE_PATH ?>/Cliente">CLIENTES</a>
+  <a class="bto" href="<?php echo INCLUDE_PATH ?>Dashboard">DASHBOARD</a>
+  <a class="bto" href="<?php echo INCLUDE_PATH ?>Funcionario">FUNCIONÁRIOS</a>
+  <a class="bto" href="<?php echo INCLUDE_PATH ?>cozinha">COZINHA</a>
+  <a class="bto" href="<?php echo INCLUDE_PATH ?>Pedidos">PEDIDOS</a>
+  <a class="bto" href="<?php echo INCLUDE_PATH ?>Clientes">CLIENTES</a>
   
 </nav>
 

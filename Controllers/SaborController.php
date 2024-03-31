@@ -2,13 +2,13 @@
 
 namespace Controllers;
 
-class AdSaborController
+class SaborController
 {
   private $view;
 
   public function __construct()
   {
-    $this->view = new \Views\MainView('AddSabor');
+    $this->view = new \Views\MainView('sabor');
   }
 
   public function executar()
