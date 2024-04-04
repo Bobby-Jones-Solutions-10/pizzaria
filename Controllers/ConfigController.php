@@ -12,6 +12,6 @@ class ConfigController
 
   public function executar()
   {
-    $this->view->render(['titulo' => 'config']);
+    $this->view->render();
   }
 }

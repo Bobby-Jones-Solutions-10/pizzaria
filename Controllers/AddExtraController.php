@@ -17,6 +17,6 @@ class AddExtraController
       \Models\Extra::adicionarExtra($_POST['nome'], $_POST['preco']);
       header('location: ' . INCLUDE_PATH . '/Config');
     }
-    $this->view->render(['titulo' => 'AddExtra']);
+    $this->view->render();
   }
 }

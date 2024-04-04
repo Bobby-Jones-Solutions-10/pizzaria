@@ -43,6 +43,16 @@ class Cliente
         $mysql->Delete('clientes','id',$id);
     }
 
+    public static function atualizarCliente($valores = [],$id) {
+        $mysql = new \MySql();
+        $colunas = ['nome', 'CPF', 'contato', 'CEP', 'logradouro', 'bairro', 'localidade', 'uf', 'ibge', 'numeroCasa', 'complemento'];
+        foreach ($valores as $key => $value) {
+            $mysql->Update('clientes',$colunas[$key],$value,$id);
+        }
+    }
+
+    
+
 
 
 

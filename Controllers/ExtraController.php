@@ -17,6 +17,10 @@ class ExtraController
       \Models\Extra::adicionarExtra($_POST['nome'], $_POST['preco']);
       header('location: ' . INCLUDE_PATH . '/Config');
     }
-    $this->view->render(['titulo' => 'AddExtra']);
+    elseif(isset($_POST['updateExtra'])){
+      \Models\Extra::editarExtra($_POST['nome'], $_POST['preco'],$_POST['id']);
+      header('location: ' . INCLUDE_PATH . '/Config');
+    }
+    $this->view->render();
   }
 }

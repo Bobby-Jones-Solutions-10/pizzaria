@@ -15,6 +15,9 @@ class CozinhaController
     if (isset($_GET["concluir"])) {
         \Models\Pedidos::finalizarPedido($_GET["concluir"]);
     }
-    $this->view->render(['titulo' => 'cozinha']);
+    elseif(isset($_GET["excluir"])){
+        \Models\Pedidos::deletarPedidos($_GET["excluir"]);
+    }
+    $this->view->render();
   }
 }

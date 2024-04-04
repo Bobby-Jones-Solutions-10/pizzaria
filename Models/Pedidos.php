@@ -52,47 +52,13 @@ namespace Models;
             $mysql = new \MySql();
             $mysql->Update('pedidos','pronta',true,$id);
         }
+        
+        public static function deletarPedidos($id){
+            $mysql = new \MySql();
+            $mysql->Delete('pedidos','id',$id);
+        }
 
        
     }
 
-/*
-CREATE TABLE IF NOT EXISTS pizzas(
-                id int primary key not null AUTO_INCREMENT,
-                idSabores int not null,
-                idExtras int not null,
-                idTamanhos int not null,
-                FOREIGN KEY (idSabores) REFERENCES sabores(id),
-                FOREIGN KEY (idExtras) REFERENCES extras(id),
-                FOREIGN KEY (idTamanhos) REFERENCES tamanhos(id)
-            );
-
-CREATE TABLE IF NOT EXISTS pedidos(
-                id int primary key not null AUTO_INCREMENT,
-                idPizza int not null,
-                idCliente int not null,
-                preco decimal(6,2) not null,
-                tipo char(1) not null,
-                pronta boolean not null, 
-                FOREIGN KEY (idPizza) REFERENCES pizzas(id),
-                FOREIGN KEY (idCliente) REFERENCES clientes(id)                
-            );
- CREATE TABLE IF NOT EXISTS sabores(
-                id int primary key not null AUTO_INCREMENT,
-                sabor varchar(100) not null UNIQUE,
-                preco decimal(6,2) not null
-            );
- CREATE TABLE IF NOT EXISTS extras(
-                id int primary key not null AUTO_INCREMENT,
-                extra varchar(100) not null UNIQUE,
-                preco decimal(6,2) not null
-            );
-            
-            CREATE TABLE IF NOT EXISTS tamanhos(
-                id int primary key not null AUTO_INCREMENT,
-                tamanho varchar(100) not null UNIQUE,
-                preco decimal(6,2) not null 
-            );
-
-*/
 

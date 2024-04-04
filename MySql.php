@@ -69,8 +69,8 @@ class MySql
             }
             return $sql->fetchAll();
         }
-            catch(PDOException){
-            echo '<script> alert("Login ou Senha incorretos"); </script>';
+        catch(PDOException $e){
+            echo $e;
         }
     }
 

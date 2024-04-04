@@ -14,6 +14,6 @@ class LoginController
     if (isset($_POST['logar'])) {
         \Models\Users::Logar($_POST['usuario'],$_POST['senha']);
     }
-    $this->view->render(['titulo' => 'Login']);
+    $this->view->render();
   }
 }

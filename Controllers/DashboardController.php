@@ -12,6 +12,6 @@ class DashboardController
 
   public function executar()
   {
-    $this->view->render(['titulo' => 'dashboard']);
+    $this->view->render();
   }
 }

@@ -1,5 +1,6 @@
 <?php
 define('INCLUDE_PATH','http://localhost/www/projetoGivas/');
+define('INCLUDE_DIR',__DIR__);
 class Aplication
 {
     public function executar()
@@ -9,6 +10,7 @@ class Aplication
             id int primary key not null AUTO_INCREMENT,
             id_status boolean not null, 
             email varchar(200) not null,
+            nome varchar(200) not null,
             senha varchar(255) not null
             );
             
@@ -79,15 +81,19 @@ class Aplication
                 FOREIGN KEY (idPizza) REFERENCES pizzas(id),
                 FOREIGN KEY (idCliente) REFERENCES clientes(id)                
             );
+
+            CREATE TABLE IF NOT EXISTS relatorios(
+                id int primary key not null AUTO_INCREMENT,
+                nome varchar(100) not null                
+            );
             ");
 
-        
 
         $url = isset ($_GET['url']) ? explode('/', $_GET['url'])[0] : 'Login';
         $url = ucfirst($url);
         $url .= "Controller";
         if (file_exists('Controllers/' . $url . '.php')) {
-            if($_SESSION["logado"] == true || $url == 'LoginController'){
+            if(@$_SESSION["logado"] == true || $url == 'LoginController'){
                 $className = 'Controllers\\' . $url;
                 $controller = new $className();
                 $controller->executar();

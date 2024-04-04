@@ -48,7 +48,8 @@
             $info = \Models\Funcionario::pegarFuncionarios();
             foreach ($info as $key => $value) {
                 ?>
-                <a href="?id=<?php echo $value['id']; ?>" class="ml-4 border-b-1 p-4 bg-blue-300 rounded-lg justify-center items-center flex flex-row gap-2 w-11/12">
+                <a href="?id=<?php echo $value['id']; ?>"
+                    class="ml-4 border-b-1 p-4 bg-blue-300 rounded-lg justify-start items-center flex flex-row gap-2 w-11/12">
                     <?php switch ($value['cargo']) {
                         case 'balconista':
                             echo "<img src='" . INCLUDE_PATH . "/assets/images/balconista.png' class='w-8 h-8 rounded-full'>";
@@ -66,7 +67,7 @@
                             echo "<img src='" . INCLUDE_PATH . "/assets/images/zelador.png' class='w-8 h-8 rounded-full'>";
                             echo $value['nome'];
                             break;
-                        case 'caixa': 
+                        case 'caixa':
                             echo "<img src='" . INCLUDE_PATH . "/assets/images/balconista.png' class='w-8 h-8 rounded-full'>";
                             echo $value['nome'];
                             break;
@@ -83,7 +84,7 @@
         }
         ?>
         <div class="w-full flex flex-col items-center mt-10 ">
-            <div class="font-semibold mb-16 text-3xl">
+            <div class="font-semibold mb-12 text-3xl border-b-2 border-zinc-400">
                 Funcionários
             </div>
             <form action="" method="post" class="w-[800px] grid grid-cols-12 gap-2">
@@ -142,13 +143,14 @@
                         <?php echo ($info != null) ? 'Atualizar' : 'Cadastrar' ?>
                     </button>
                     <?php
-                        if($info != null){
-                    ?>
-                    <br>
-                    <a href="<?php echo INCLUDE_PATH; ?>/Funcionario?deletar=<?php echo $_GET["id"]; ?>" class="bg-[#FF0000] rounded-md p-2 text-md font-bold text-white hover:bg-red-500">
-                        Deletar
+                    if ($info != null) {
+                        ?>
+                        <br>
+                        <a href="<?php echo INCLUDE_PATH; ?>/Funcionario?deletar=<?php echo $_GET["id"]; ?>"
+                            class="bg-[#FF0000] rounded-md p-2 text-md font-bold text-white hover:bg-red-500">
+                            Deletar
                         </a>
-                    <?php }?>    
+                    <?php } ?>
                 </div>
                 <?php
                 if ($info != null) {

@@ -38,9 +38,9 @@
   <section class="flex bg-[#F9EFDB] h-[74%]">
     <?php
     $info = null;
-    if (isset($_GET["id"])) {
+    if (isset($_GET["update"])) {
       $mysql = new \MySql();
-      $info = $mysql->Select('clientes', '*', 'id', $_GET["id"]);
+      $info = $mysql->Select('clientes', '*', 'id', $_GET["update"]);
     }
     ?>
     <div class="w-full flex flex-col items-center mt-10 ">
@@ -48,6 +48,9 @@
         Clientes
       </div>
       <form action="" method="post" class="w-[800px] grid grid-cols-12 gap-2">
+        <?php if ($info != null) { ?> 
+          <input type="hidden" name="id" value="<?php echo $_GET["update"] ?>">
+        <?php } ?>
         <input type="text" name="CPF" placeholder="CPF" required
           class="bg-white border rounded-md p-2 text-md font-bold text-zinc-600 col-span-4"
           value="<?php echo ($info != null) ? $info[0]['CPF'] : null ?>" />
@@ -98,4 +101,9 @@
           </button>
   </div>
   </section>
+  <?php
+    if ($info != null) {
+      echo "<script>getEndereco(document.getElementById('cep').value)</script>";
+    }
+  ?>
 </body>

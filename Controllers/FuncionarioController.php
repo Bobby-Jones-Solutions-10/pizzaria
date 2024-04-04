@@ -25,6 +25,6 @@ class FuncionarioController
         \Models\Funcionario::deletarFuncionario($_GET["deletar"]);
       }
 
-      $this->view->render(['titulo' => 'Funcionarios']);
+      $this->view->render();
     }
 }

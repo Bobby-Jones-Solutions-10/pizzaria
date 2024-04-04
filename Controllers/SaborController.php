@@ -17,6 +17,10 @@ class SaborController
       \Models\Sabor::adicionarSabor($_POST['nome'], $_POST['preco']);
       header('location: ' . INCLUDE_PATH . '/Config');
     }
-    $this->view->render(['titulo' => 'AddSabor']);
+    else if(isset($_POST['updateSabor'])){
+      \Models\Sabor::editarSabor($_POST['nome'], $_POST['preco'],$_POST['id']);
+      header('location: ' . INCLUDE_PATH . '/Config');
+    }
+    $this->view->render();
   }
 }
