@@ -30,8 +30,7 @@ foreach ($info as $key => $value) {
                     <?php echo ($info2 != null) ? 'Atualizar' : 'Adicionar' ?>
                 </button>
                 <a href="<?php echo INCLUDE_PATH; ?>/Sabor"
-                    class="bg-zinc-500 rounded-md p-2 text-md font-bold text-white w-[150px] hover:bg-zinc-400 col-span-2 justify-center flex">Adicionar
-                    outro</a>
+                    class="bg-zinc-500 rounded-md p-2 text-md font-bold text-white w-[150px] hover:bg-zinc-400 col-span-2 justify-center flex">Limpar campos</a>
             </form>
 
             <table class="w-[800px] border-2">
